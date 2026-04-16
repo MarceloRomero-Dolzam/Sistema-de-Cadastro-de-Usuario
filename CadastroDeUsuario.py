@@ -104,13 +104,14 @@ while True:
 
         #mostra a lista de usuários
         elif menuDeOpcoes == 2:
-
+            
+            #se a lista de usuários estiver vázia.
             if not listaDeUsuarios:
 
                 print("Nenhum usuário cadastrado.")
-
+            #caso ela não esteja vázia.
             else:
-                
+
                 for usuario in listaDeUsuarios:
                     
                     usuarioFormatado(usuario)
