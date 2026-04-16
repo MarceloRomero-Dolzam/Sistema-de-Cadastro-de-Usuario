@@ -17,11 +17,8 @@ Exemplo:
 -Trata erros quando o usuário digita letras ao invés de números
 
 --Melhorias futuras--
--Melhorar a exibição dos usuários (formatação mais amigável)
 -Salvar os dados em arquivo (JSON ou banco de dados)
--Separar o código em funções
 -Adicionar validação de email
--Criar interface gráfica (GUI)
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -30,6 +27,10 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Estrturas de repetição
 -Controle de fluxo
 -Boas práticas iniciais em Python
+
+--Melhorias feitas--
+-Separar o código em funções
+-Melhorar a exibição dos usuários (formatação mais amigável)
 
 -Autor
 
