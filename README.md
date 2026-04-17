@@ -17,8 +17,8 @@ Exemplo:
 -Trata erros quando o usuário digita letras ao invés de números
 
 --Melhorias futuras--
--Salvar os dados em arquivo (JSON ou banco de dados)
 -Adicionar validação de email
+-Adicionar editar usuário
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -29,6 +29,7 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Boas práticas iniciais em Python
 
 --Melhorias feitas--
+-Salvar os dados em arquivo (JSON ou banco de dados)
 -Separar o código em funções
 -Melhorar a exibição dos usuários (formatação mais amigável)
 

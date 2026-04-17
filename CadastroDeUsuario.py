@@ -1,9 +1,43 @@
 import json
 import os
 
-listaDeUsuarios = [
-    {"nome": "Ana", "idade": 20, "email": "ana@gmail.com"}
-]
+listaDeUsuarios = []
+arquivo = 'BancoDeDadosUsuario.json'
+
+def carregarUsuario():
+
+    #o os.path.exists() verifica se existe um arquivo em específico.
+    if os.path.exists(arquivo):
+
+        #o with serve para arbir este arquivo e fecha-lo. 
+        #O 'r' serve para ler o arquivo.
+        #O o as serve para nomear uma ferramenta que possui um nome extenso com um nome curto.
+        #O enconding = 'utf-8' evita problema com acentos.
+        with open(arquivo, 'r', encoding = 'utf-8') as dados:
+
+            #Utilziado para tratar qualquer erro que possa aparecer no arquivo.
+            try:
+                listaDeUsuarios = json.load(dados)
+            except json.JSONDecodeError:
+                print("Erro ao ler o banco de dados!")
+                #em caso de erro, ele retorna a lista vazia.
+                listaDeUsuarios = []
+
+            if not isinstance(listaDeUsuarios, list):
+
+                listaDeUsuarios = []
+
+    else:
+        listaDeUsuarios = []
+
+    return listaDeUsuarios 
+
+#para ativar a def
+listaDeUsuarios = carregarUsuario()  
+
+def salvarUsuario():
+    with open(arquivo, 'w', encoding = 'utf-8') as dados:
+        json.dump(listaDeUsuarios, dados, indent = 4)
 
 def AddUsuario():
     nome = input("Digite o nome: ")
@@ -34,6 +68,9 @@ def AddUsuario():
 
         #adiciona o novo usuário à lista.
         listaDeUsuarios.append(usuario)
+        salvarUsuario()
+
+        print("Usuário cadastrado com sucesso!")
 
 def buscarUsuario():
     buscarNomeUsuario = input("Digite o nome do usuário: ").lower()
@@ -45,7 +82,8 @@ def buscarUsuario():
     for usuarioNome in listaDeUsuarios:
 
         if usuarioNome["nome"].lower() == buscarNomeUsuario:
-            print(f"Usuário encontrado:\n {usuarioNome}")
+            print("\n--Usuário encontrado--")
+            usuarioFormatado(usuarioNome)
             encontrado = True
             break
 
@@ -57,22 +95,31 @@ def removerUsuario():
     procurarNomeUsuraio = input("Digite o nome do usuário: ").lower()
 
     #variavél usada para controlar a remoção do usuário cadastrado, caso ele exista ele poderá ser removido.
-    NomeEncontrado = False
+    encontrado = False
 
     for usuarioNome in listaDeUsuarios:
                 
         #se o usuário existir, ele pergunta se você quer realmente remover o usuário.
         if usuarioNome["nome"].lower() == procurarNomeUsuraio:
 
-            removerUsuario = input(f"Você deseja remover o usuário {usuarioNome}? ").lower()
+            encontrado = True
+            confirmacao = input(f"Você deseja remover o usuário {usuarioNome}? ").lower()
 
-            if removerUsuario == "sim" or removerUsuario == "s":
+            if confirmacao in ["sim", "s", "ss"]:
+
                 listaDeUsuarios.remove(usuarioNome)
+                salvarUsuario()
                 print("Usuário removido")
-                NomeEncontrado = True
-                break
 
-    if not NomeEncontrado:
+            elif confirmacao in ["não","nao","n","nn"]:
+
+                print("Remoção cancelada.")
+            else:
+
+                print("Não entendi o comando, utilize sim ou não! ")
+            break
+
+    if not encontrado:
         print("Desculpe, mas não foi possível remover o usuário pois o mesmo não encontrado na nossa lista.")
 
 def usuarioFormatado(usuario):
@@ -116,10 +163,8 @@ while True:
             else:
 
                 for usuario in listaDeUsuarios:
-                    
-                    usuarioFormatado(usuario)
 
-            
+                    usuarioFormatado(usuario)
 
         #busca o usuário
         elif menuDeOpcoes == 3:
