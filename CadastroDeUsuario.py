@@ -1,3 +1,6 @@
+import json
+import os
+
 listaDeUsuarios = [
     {"nome": "Ana", "idade": 20, "email": "ana@gmail.com"}
 ]
