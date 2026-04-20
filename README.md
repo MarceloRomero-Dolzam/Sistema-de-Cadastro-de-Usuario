@@ -19,6 +19,7 @@ Exemplo:
 --Melhorias futuras--
 -Adicionar validação de email
 -Adicionar editar usuário
+-Adicionar um ID único para cada usuário
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -32,6 +33,8 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Salvar os dados em arquivo (JSON ou banco de dados)
 -Separar o código em funções
 -Melhorar a exibição dos usuários (formatação mais amigável)
+-Foi alterado o verificador do nome para o email.
+-Foi adicionado  um condicional para verificar o valor de idade.
 
 -Autor
 

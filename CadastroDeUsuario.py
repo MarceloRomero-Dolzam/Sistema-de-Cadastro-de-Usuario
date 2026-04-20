@@ -42,26 +42,35 @@ def salvarUsuario():
 def AddUsuario():
     nome = input("Digite o nome: ")
 
-    #variavél criada para previnir nomes repetidos.
-    jaExiste = False
+    email = input("Digite o email: ")
+    #variavél criada para previnir emails repetidos.
+    existe = False
 
-    #verifica se há nomes repetidos.
-    for nomeRepetido in listaDeUsuarios:
+    #verifica se há emails repetidos.
+    for emailRepetido in listaDeUsuarios:
                 
-        #se existir nomes repetidos ele avisa, mostra o usuário existente e sai do programa(break)
-        if nomeRepetido["nome"].lower() == nome.lower():
-            print(f"Já existe um usuário com este nome:\n {nomeRepetido}")
-            jaExiste = True
+        #se existir emails repetidos ele avisa, mostra o email existente e sai do programa(break)
+        if emailRepetido["email"].lower() == email.lower():
+            print(f"Já existe um usuário com este email:\n {emailRepetido}")
+            existe = True
             break
                 
     #se não existir, ele continua o programa normalmente.
-    if not jaExiste:
-        try:
-            idade = int(input("Digite a idade: "))
-        except ValueError:
-            print("O campo 'idade' só aceita números.")
-        
-        email = input("Digite o email: ")
+    if not existe:
+
+        while True:
+
+            try:
+                idade = int(input("Digite a idade: "))
+
+                if idade <= 0:
+                    print("Digite uma idade maior que 0.")
+                elif idade > 100:
+                    print("Digite uma idade menor que 100.")
+                else:
+                    break
+            except ValueError:
+                print("O campo 'idade' só aceita números.")
 
         usuario = {
             "nome": nome,
