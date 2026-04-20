@@ -36,6 +36,6 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Foi alterado o verificador do nome para o email.
 -Foi adicionado  um condicional para verificar o valor de idade.
 
--Autor
+--Autor
 
 Projeto desenvolvido para fins de aprendizado em Python.
