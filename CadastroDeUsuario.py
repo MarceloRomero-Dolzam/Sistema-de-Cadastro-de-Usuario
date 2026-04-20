@@ -56,8 +56,11 @@ def AddUsuario():
                 
     #se não existir, ele continua o programa normalmente.
     if not jaExiste:
-
-        idade = int(input("Digite a idade: "))
+        try:
+            idade = int(input("Digite a idade: "))
+        except ValueError:
+            print("O campo 'idade' só aceita números.")
+        
         email = input("Digite o email: ")
 
         usuario = {
@@ -141,7 +144,8 @@ while True:
 
     try:
         menuDeOpcoes = int(input("Digite sua opção: "))
-    
+    except ValueError:
+        print("O campo de 'Digite sua opção:' só aceita números")
 
         if menuDeOpcoes < 1 or menuDeOpcoes > 5:
 
@@ -181,7 +185,3 @@ while True:
 
             print("saindo da lista.")
             break
-    
-    except ValueError:
-        print("As partes do programa que só aceitam número, como em idade - na parte de cadastro -  e "
-              "na lista de opções.")
