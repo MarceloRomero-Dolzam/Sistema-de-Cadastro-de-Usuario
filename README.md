@@ -17,9 +17,11 @@ Exemplo:
 -Trata erros quando o usuário digita letras ao invés de números
 
 --Melhorias futuras--
--Adicionar validação de email
--Adicionar editar usuário
--Adicionar um ID único para cada usuário
+-Editor de usuário(em andamento)
+-Organizar o código, fragmentando o código em arquivos menores.
+
+--Problemas para resolver--
+-Quando vai excluir um usuário e ambos tem o mesmo nome, ele puxa o primeiro na lista.
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:

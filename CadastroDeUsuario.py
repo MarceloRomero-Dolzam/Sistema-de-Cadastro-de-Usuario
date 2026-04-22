@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 listaDeUsuarios = []
 arquivo = 'BancoDeDadosUsuario.json'
@@ -35,25 +36,54 @@ def carregarUsuario():
 #para ativar a def
 listaDeUsuarios = carregarUsuario()  
 
+def validarEmail(email):
+
+    padrãoEmail = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    valido = False
+
+    if re.match(padrãoEmail, email):
+
+        valido = True
+    else:
+
+        valido = False
+
+    return valido
+
 def salvarUsuario():
     with open(arquivo, 'w', encoding = 'utf-8') as dados:
         json.dump(listaDeUsuarios, dados, indent = 4)
 
 def AddUsuario():
+
     nome = input("Digite o nome: ")
 
-    email = input("Digite o email: ")
-    #variavél criada para previnir emails repetidos.
-    existe = False
+    while True:
 
-    #verifica se há emails repetidos.
-    for emailRepetido in listaDeUsuarios:
-                
-        #se existir emails repetidos ele avisa, mostra o email existente e sai do programa(break)
-        if emailRepetido["email"].lower() == email.lower():
-            print(f"Já existe um usuário com este email:\n {emailRepetido}")
-            existe = True
-            break
+        email = input("Digite o email: ").lower().strip()
+
+        #variavél criada para previnir emails repetidos.
+        existe = False
+        
+
+        if not validarEmail(email):
+
+            print("Email inválido! Tente inserir o email novamente")
+        else:
+            #verifica se há emails repetidos.
+            for emailRepetido in listaDeUsuarios:
+                    
+                #se existir emails repetidos ele avisa, mostra o email existente e sai do programa(break)
+                if emailRepetido["email"] == email.lower().strip():
+                    existe = True
+
+            if existe:
+
+                print(f"Já existe um usuário com este email.")
+            else: 
+                break
+
+        
                 
     #se não existir, ele continua o programa normalmente.
     if not existe:
@@ -65,7 +95,7 @@ def AddUsuario():
 
                 if idade <= 0:
                     print("Digite uma idade maior que 0.")
-                elif idade > 100:
+                elif idade >= 100:
                     print("Digite uma idade menor que 100.")
                 else:
                     break
@@ -132,7 +162,7 @@ def removerUsuario():
             break
 
     if not encontrado:
-        print("Desculpe, mas não foi possível remover o usuário pois o mesmo não encontrado na nossa lista.")
+        print("Desculpe, mas não foi possível remover o usuário pois o mesmo não foi encontrado na nossa lista.")
 
 def usuarioFormatado(usuario):
 
@@ -149,15 +179,16 @@ while True:
                             "2 - Listar usuário\n"
                             "3 - Buscar usuário\n"
                             "4 - Remover usuário\n"
-                            "5 - sair\n")
+                            "5 - Editar usuário\n"
+                            "6 - sair\n")
 
     try:
         menuDeOpcoes = int(input("Digite sua opção: "))
     
 
-        if menuDeOpcoes < 1 or menuDeOpcoes > 5:
+        if menuDeOpcoes < 1 or menuDeOpcoes > 6:
 
-            print("Escolha entre as opções 1 e 5.")
+            print("Escolha entre as opções 1 e 6.")
         
         #adiciona usuário
         elif menuDeOpcoes == 1:
@@ -187,9 +218,13 @@ while True:
         elif menuDeOpcoes == 4:
 
             removerUsuario()
-            
-        #Sai do programa.
+        
+        #edita o usuário
         elif menuDeOpcoes == 5:
+            print("Em construção...")
+
+        #Sai do programa.
+        elif menuDeOpcoes == 6:
 
             print("saindo da lista.")
             break
