@@ -40,7 +40,7 @@ def validarEmail(email):
 
     padrãoEmail = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     valido = False
-
+    #re.match serve para verificar um padrão.
     if re.match(padrãoEmail, email):
 
         valido = True
@@ -50,13 +50,39 @@ def validarEmail(email):
 
     return valido
 
+def validarNome(nome):
+
+    padraoNome = r"^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[ \s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$";
+    nomeStrip = nome.strip()
+    nomeValido = False
+    #re.fullmatch verifica a string completa e compara ela com o padrão desejado.
+    if not re.fullmatch(padraoNome, nomeStrip) or len(nomeStrip) < 5:
+
+        nomeValido = False
+    else:
+
+        nomeValido = True
+
+    return nomeValido
+
+
+
 def salvarUsuario():
     with open(arquivo, 'w', encoding = 'utf-8') as dados:
         json.dump(listaDeUsuarios, dados, indent = 4)
 
 def AddUsuario():
 
-    nome = input("Digite o nome: ")
+    while True:
+        nome = input("Digite o nome: ")
+
+        if not validarNome(nome):
+            print("O nome está no formato incorreto, ele precisa respeitar a regra de carater: de 'Aa' a 'Zz' e com, no mínimo, 5 caracters")
+        else:
+            break
+
+
+
 
     while True:
 

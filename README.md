@@ -12,16 +12,11 @@ Exemplo:
 [ {"nome": "Ana", "idade": 20, "email": "ana@gmail.com"} ]
 
 --Validações implementadas--
--O programa não permite usuários com nomes duplicados
--Verifica se o valor digitado no menu é válido
 -Trata erros quando o usuário digita letras ao invés de números
 
 --Melhorias futuras--
 -Editor de usuário(em andamento)
 -Organizar o código, fragmentando o código em arquivos menores.
-
---Problemas para resolver--
--Quando vai excluir um usuário e ambos tem o mesmo nome, ele puxa o primeiro na lista.
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -32,6 +27,7 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Boas práticas iniciais em Python
 
 --Melhorias feitas--
+-Verifica se o valor digitado no menu é válido
 -Salvar os dados em arquivo (JSON ou banco de dados)
 -Separar o código em funções
 -Melhorar a exibição dos usuários (formatação mais amigável)
