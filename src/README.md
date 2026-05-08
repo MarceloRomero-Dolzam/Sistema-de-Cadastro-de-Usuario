@@ -16,7 +16,6 @@ Exemplo:
 
 --Melhorias futuras--
 -Editor de usuário(em andamento)
--Organizar o código, fragmentando o código em arquivos menores.
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -33,6 +32,7 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Melhorar a exibição dos usuários (formatação mais amigável)
 -Foi alterado o verificador do nome para o email.
 -Foi adicionado  um condicional para verificar o valor de idade.
+-Organizar o código, fragmentando o código em arquivos menores.
 
 --Autor
 
