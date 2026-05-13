@@ -5,17 +5,11 @@ O sistema permite cadastro, listar, buscar e remover usuários de forma interati
 --Estrutura do projeto--
 O sistema funciona com uma lista de usuários, onde cada usuário é representado por um dicionário:
 -Nome
--Idade
 -Email
+-Idade
 
 Exemplo:
 [ {"nome": "Ana", "idade": 20, "email": "ana@gmail.com"} ]
-
---Validações implementadas--
--Trata erros quando o usuário digita letras ao invés de números
-
---Melhorias futuras--
--Editor de usuário(em andamento)
 
 --Objetivo do projeto--
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -33,6 +27,7 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 -Foi alterado o verificador do nome para o email.
 -Foi adicionado  um condicional para verificar o valor de idade.
 -Organizar o código, fragmentando o código em arquivos menores.
+-Editar usuario
 
 --Autor
 

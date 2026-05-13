@@ -2,7 +2,7 @@ import json
 import os
 
 listaDeUsuarios = []
-arquivo = 'bancoDeDados/BancoDeDadosUsuario.json'
+arquivo = 'src/bancoDeDados/BancoDeDadosUsuario.json'
 
 def carregarUsuario():
 
@@ -31,6 +31,8 @@ def carregarUsuario():
         listaDeUsuarios = []
 
     return listaDeUsuarios 
+
+listaDeUsuarios = carregarUsuario()
 
 def salvarUsuario():
     with open(arquivo, 'w', encoding = 'utf-8') as dados:

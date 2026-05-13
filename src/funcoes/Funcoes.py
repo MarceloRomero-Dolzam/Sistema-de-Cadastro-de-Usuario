@@ -30,18 +30,32 @@ def validarNome(nome):
 
     return nomeValido
 
+
+def verificarEmailRepetido(email):
+
+    emailRepetido = False
+
+    for usuario in Banco.listaDeUsuarios:
+
+        if usuario["email"] == email:
+
+            emailRepetido = True
+
+    return emailRepetido
+
+
 def buscarUsuario():
-    buscarNomeUsuario = input("Digite o nome do usuário: ").lower()
+    buscarEmail = input("Digite o email do usuário: ").lower().strip()
 
     #variavél criada para ajduar no controle de busca, se ele existir no sistema a variavél retorna True.
     encontrado = False
 
     #procura o usuário na lista do sistema.
-    for usuarioNome in Banco.listaDeUsuarios:
+    for usuarioEmail in Banco.listaDeUsuarios:
 
-        if usuarioNome["nome"].lower() == buscarNomeUsuario:
+        if usuarioEmail["email"].lower() == buscarEmail:
             print("\n--Usuário encontrado--")
-            usuarioFormatado(usuarioNome)
+            usuarioFormatado(usuarioEmail)
             encontrado = True
             break
 
@@ -50,7 +64,7 @@ def buscarUsuario():
 
 def usuarioFormatado(usuario):
 
+    print("---------------------------")
     print(f"Nome: {usuario['nome']}")
     print(f"Idade: {usuario['idade']}")
     print(f"Email: {usuario['email']}")
-    print("---------------------------")

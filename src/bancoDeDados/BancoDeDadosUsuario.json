@@ -1,1 +1,7 @@
-[]
+[
+    {
+        "nome": "Marcelo Romero",
+        "idade": 22,
+        "email": "marceloromero@gmail.com"
+    }
+]

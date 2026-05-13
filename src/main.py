@@ -2,11 +2,9 @@ from funcoes import Funcoes
 from bancoDeDados import Banco
 from CRUD import Crud
 
-#para carregar o usuario.
-Banco.carregarUsuario()
-
 while True:
 
+    print("---------------------------")
     print("Escolha uma opção:\n"
                             "1 - Cadastrar usuário\n"
                             "2 - Listar usuário\n"
@@ -17,7 +15,7 @@ while True:
 
     try:
         menuDeOpcoes = int(input("Digite sua opção: "))
-    
+
 
         if menuDeOpcoes < 1 or menuDeOpcoes > 6:
 
@@ -25,8 +23,8 @@ while True:
         
         #adiciona usuário
         elif menuDeOpcoes == 1:
-
-           Crud.AddUsuario()
+            print("---------------------------")
+            Crud.AddUsuario()
 
         #mostra a lista de usuários
         elif menuDeOpcoes == 2:
@@ -44,17 +42,18 @@ while True:
 
         #busca o usuário
         elif menuDeOpcoes == 3:
-            
-           Funcoes.buscarUsuario()
+            print("---------------------------")
+            Funcoes.buscarUsuario()
         
         #remove o usuário
         elif menuDeOpcoes == 4:
-
+            print("---------------------------")
             Crud.removerUsuario()
         
         #edita o usuário
         elif menuDeOpcoes == 5:
-            print("Em construção...")
+            print("---------------------------")
+            Crud.editarUsuario()
 
         #Sai do programa.
         elif menuDeOpcoes == 6:
